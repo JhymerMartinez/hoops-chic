@@ -2,8 +2,8 @@ import type { Metadata } from "next";
 import { AppRouterCacheProvider } from "@mui/material-nextjs/v14-appRouter";
 import "./globals.css";
 import { ThemeRegistry } from "@/components/ThemeRegistry/ThemeRegistry";
-import { Header } from "@/components/Header/Header";
-import { Footer } from "@/components/Footer/Footer";
+import { Header } from "@/components/Header";
+import { Footer } from "@/components/Footer";
 import Container from "@mui/material/Container";
 
 export const metadata: Metadata = {
