@@ -4,6 +4,8 @@ import { Slider } from "@/components/Slider/Slider";
 import { Box, Tabs, Tab, Typography } from "@mui/material";
 import { useState } from "react";
 import { StyledTab } from "./page.styles";
+import { ITab } from "@/interfaces";
+import { Catalog } from "@/components/Catalog/Catalog";
 
 interface TabPanelProps {
   children?: React.ReactNode;
@@ -15,19 +17,15 @@ function CustomTabPanel(props: TabPanelProps) {
   const { children, value, index, ...other } = props;
 
   return (
-    <div
+    <Box
       role="tabpanel"
       hidden={value !== index}
       id={`simple-tabpanel-${index}`}
       aria-labelledby={`simple-tab-${index}`}
       {...other}
     >
-      {value === index && (
-        <Box>
-          <Typography>{children}</Typography>
-        </Box>
-      )}
-    </div>
+      {value === index && children}
+    </Box>
   );
 }
 
@@ -40,6 +38,20 @@ function a11yProps(index: number) {
 
 export default function Home() {
   const [value, setValue] = useState(0);
+  const tabs: ITab[] = [
+    {
+      label: "Anillos",
+      category: "rings",
+    },
+    {
+      label: "Aretes",
+      category: "earrings",
+    },
+    {
+      label: "Manillas",
+      category: "handles",
+    },
+  ];
 
   const handleChange = (event: React.SyntheticEvent, newValue: number) => {
     setValue(newValue);
@@ -54,20 +66,16 @@ export default function Home() {
           onChange={handleChange}
           aria-label="basic tabs example"
         >
-          <StyledTab label="Item One" {...a11yProps(0)} />
-          <StyledTab label="Item Two" {...a11yProps(1)} />
-          <StyledTab label="Item Three" {...a11yProps(2)} />
+          {tabs.map((tab, index) => (
+            <StyledTab key={index} label={tab.label} {...a11yProps(index)} />
+          ))}
         </Tabs>
       </Box>
-      <CustomTabPanel value={value} index={0}>
-        Item One
-      </CustomTabPanel>
-      <CustomTabPanel value={value} index={1}>
-        Item Two
-      </CustomTabPanel>
-      <CustomTabPanel value={value} index={2}>
-        Item Three
-      </CustomTabPanel>
+      {tabs.map((tab, index) => (
+        <CustomTabPanel key={index} value={value} index={index}>
+          <Catalog category={tab.category} />
+        </CustomTabPanel>
+      ))}
     </Box>
   );
 }
