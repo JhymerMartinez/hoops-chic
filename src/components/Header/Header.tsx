@@ -2,7 +2,6 @@
 
 import * as React from "react";
 import Toolbar from "@mui/material/Toolbar";
-import Typography from "@mui/material/Typography";
 import Container from "@mui/material/Container";
 import { Box } from "@mui/material";
 import { StyledAppBar, StyledLogo } from "./Header.styles";
@@ -11,7 +10,7 @@ export const Header = () => {
   return (
     <StyledAppBar position="static" color="inherit">
       <Container maxWidth="xl">
-        <Toolbar disableGutters>
+        <Toolbar disableGutters id="back-to-top-anchor">
           <Box
             component="a"
             href="#"

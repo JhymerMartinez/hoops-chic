@@ -58,7 +58,7 @@ export default function Home() {
   };
 
   return (
-    <Box sx={{ height: "100vh" }}>
+    <Box>
       <Slider />
       <Box sx={{ marginY: 4 }}>
         <Tabs
