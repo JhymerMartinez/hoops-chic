@@ -3,8 +3,9 @@
 import * as React from "react";
 import Toolbar from "@mui/material/Toolbar";
 import Container from "@mui/material/Container";
-import { Box } from "@mui/material";
+import { Box, IconButton } from "@mui/material";
 import { StyledAppBar, StyledLogo } from "./Header.styles";
+import SearchIcon from "@mui/icons-material/Search";
 
 export const Header = () => {
   return (
@@ -18,9 +19,19 @@ export const Header = () => {
               mr: 2,
               display: { xs: "none", md: "flex" },
               fontFamily: "monospace",
+              flexGrow: {
+                xs: 0,
+                md: 1,
+              },
             }}
           >
-            <StyledLogo sx={{ display: { xs: "none", md: "flex" }, mr: 1 }} />
+            <StyledLogo
+              sx={{
+                display: { xs: "none", md: "flex" },
+
+                mr: 1,
+              }}
+            />
           </Box>
 
           <Box
@@ -47,6 +58,10 @@ export const Header = () => {
               }}
             />
           </Box>
+
+          <IconButton aria-label="delete">
+            <SearchIcon />
+          </IconButton>
         </Toolbar>
       </Container>
     </StyledAppBar>

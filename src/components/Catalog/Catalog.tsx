@@ -1,5 +1,5 @@
 import { ICatalogProps } from "@/interfaces";
-import { Box, Grid } from "@mui/material";
+import { Box, Grid, Pagination } from "@mui/material";
 import { CatalogCard } from "../CatalogCard/CatalogCard";
 
 export const Catalog = (props: ICatalogProps) => {
@@ -13,6 +13,9 @@ export const Catalog = (props: ICatalogProps) => {
           </Grid>
         ))}
       </Grid>
+      <Box display={"flex"} justifyContent={"center"} marginTop={3}>
+        <Pagination count={10} variant="outlined" />
+      </Box>
     </Box>
   );
 };
