@@ -4,7 +4,7 @@ import { Slider } from "@/components/Slider/Slider";
 import { Box, Tabs, Tab, Typography } from "@mui/material";
 import { useState } from "react";
 import { StyledTab } from "./page.styles";
-import { ITab } from "@/interfaces";
+import { Category, ITab } from "@/interfaces";
 import { Catalog } from "@/components/Catalog/Catalog";
 
 interface TabPanelProps {
@@ -41,15 +41,15 @@ export default function Home() {
   const tabs: ITab[] = [
     {
       label: "Anillos",
-      category: "rings",
+      category: Category.RINGS,
     },
     {
       label: "Aretes",
-      category: "earrings",
+      category: Category.EARRINGS,
     },
     {
       label: "Manillas",
-      category: "handles",
+      category: Category.HANDLES,
     },
   ];
 
@@ -73,7 +73,7 @@ export default function Home() {
       </Box>
       {tabs.map((tab, index) => (
         <CustomTabPanel key={index} value={value} index={index}>
-          <Catalog category={tab.category} />
+          <Catalog category={tab.category as Category} />
         </CustomTabPanel>
       ))}
     </Box>
