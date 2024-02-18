@@ -8,11 +8,12 @@ export const CatalogCard = (props: ICatalogCardProps) => {
       <Image
         src={props.data.images[0].src}
         alt={props.data.images[0].alt}
-        width={100}
-        height={100}
+        width={300}
+        height={390}
+        loading="lazy"
+        style={{ objectFit: "cover", width: "100%" }}
       />
       <h3>{props.data.name}</h3>
-      <p>{props.data.description}</p>
       <p>{props.data.price}</p>
     </StyledPaper>
   );
