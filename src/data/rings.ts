@@ -4,11 +4,11 @@ export const rings = [
     code: "R001",
     images: [
       {
-        src: "https://via.placeholder.com/150",
+        src: "https://picsum.photos/720/1280",
         alt: "ring 1",
       },
       {
-        src: "https://via.placeholder.com/150",
+        src: "https://picsum.photos/720/1280",
         alt: "ring 2",
       },
     ],
@@ -32,11 +32,11 @@ export const rings = [
     code: "R002",
     images: [
       {
-        src: "https://via.placeholder.com/150",
+        src: "https://picsum.photos/720/1280",
         alt: "ring 1",
       },
       {
-        src: "https://via.placeholder.com/150",
+        src: "https://picsum.photos/720/1280",
         alt: "ring 2",
       },
     ],
@@ -60,11 +60,11 @@ export const rings = [
     code: "R003",
     images: [
       {
-        src: "https://via.placeholder.com/150",
+        src: "https://picsum.photos/720/1280",
         alt: "ring 1",
       },
       {
-        src: "https://via.placeholder.com/150",
+        src: "https://picsum.photos/720/1280",
         alt: "ring 2",
       },
     ],
@@ -88,11 +88,11 @@ export const rings = [
     code: "R004",
     images: [
       {
-        src: "https://via.placeholder.com/150",
+        src: "https://picsum.photos/720/1280",
         alt: "ring 1",
       },
       {
-        src: "https://via.placeholder.com/150",
+        src: "https://picsum.photos/720/1280",
         alt: "ring 2",
       },
     ],
@@ -116,11 +116,11 @@ export const rings = [
     code: "R005",
     images: [
       {
-        src: "https://via.placeholder.com/150",
+        src: "https://picsum.photos/720/1280",
         alt: "ring 1",
       },
       {
-        src: "https://via.placeholder.com/150",
+        src: "https://picsum.photos/720/1280",
         alt: "ring 2",
       },
     ],
@@ -144,11 +144,11 @@ export const rings = [
     code: "R006",
     images: [
       {
-        src: "https://via.placeholder.com/150",
+        src: "https://picsum.photos/720/1280",
         alt: "ring 1",
       },
       {
-        src: "https://via.placeholder.com/150",
+        src: "https://picsum.photos/720/1280",
         alt: "ring 2",
       },
     ],
@@ -172,11 +172,11 @@ export const rings = [
     code: "R007",
     images: [
       {
-        src: "https://via.placeholder.com/150",
+        src: "https://picsum.photos/720/1280",
         alt: "ring 1",
       },
       {
-        src: "https://via.placeholder.com/150",
+        src: "https://picsum.photos/720/1280",
         alt: "ring 2",
       },
     ],

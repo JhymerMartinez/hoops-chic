@@ -4,7 +4,7 @@ export const handles = [
     code: "handles-1",
     images: [
       {
-        src: "https://via.placeholder.com/150",
+        src: "https://picsum.photos/720/1280",
         alt: "Handles 1",
       },
     ],
@@ -19,7 +19,7 @@ export const handles = [
     code: "handles-2",
     images: [
       {
-        src: "https://via.placeholder.com/150",
+        src: "https://picsum.photos/720/1280",
         alt: "Handles 2",
       },
     ],
@@ -34,7 +34,7 @@ export const handles = [
     code: "handles-3",
     images: [
       {
-        src: "https://via.placeholder.com/150",
+        src: "https://picsum.photos/720/1280",
         alt: "Handles 3",
       },
     ],
@@ -49,7 +49,7 @@ export const handles = [
     code: "handles-4",
     images: [
       {
-        src: "https://via.placeholder.com/150",
+        src: "https://picsum.photos/720/1280",
         alt: "Handles 4",
       },
     ],

@@ -4,7 +4,7 @@ export const earrings = [
     code: "earrings-1",
     images: [
       {
-        src: "https://via.placeholder.com/150",
+        src: "https://picsum.photos/720/1280",
         alt: "Earrings 1",
       },
     ],
@@ -19,7 +19,7 @@ export const earrings = [
     code: "earrings-2",
     images: [
       {
-        src: "https://via.placeholder.com/150",
+        src: "https://picsum.photos/720/1280",
         alt: "Earrings 2",
       },
     ],
@@ -34,7 +34,7 @@ export const earrings = [
     code: "earrings-3",
     images: [
       {
-        src: "https://via.placeholder.com/150",
+        src: "https://picsum.photos/720/1280",
         alt: "Earrings 3",
       },
     ],
@@ -49,7 +49,7 @@ export const earrings = [
     code: "earrings-4",
     images: [
       {
-        src: "https://via.placeholder.com/150",
+        src: "https://picsum.photos/720/1280",
         alt: "Earrings 4",
       },
     ],
