@@ -14,7 +14,7 @@ export const StyledAppBar = styled(AppBar)(({ theme }) => ({
 
 export const StyledLogo = styled(Logo)(() => ({
   "&.MuiSvgIcon-root": {
-    height: "2em",
-    width: "2em",
+    height: "2.5em",
+    width: "2.5em",
   },
 }));
