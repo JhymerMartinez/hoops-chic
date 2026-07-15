@@ -13,6 +13,7 @@
   --color-ivory: var(--ivory);
   --color-lavender: var(--lavender);
   --color-violet: var(--violet);
+  --color-violet-light: var(--violet-light);
   --color-violet-dark: var(--violet-dark);
   --color-charcoal: var(--charcoal);
   --color-whatsapp: var(--whatsapp);
@@ -59,13 +60,15 @@
    * Brand theme
    * -----------
    * This is the single source of truth for the site's color palette.
-   * It's derived from the Hoops Chic logo (violet/orchid butterfly on a
-   * lavender wash). Update these values to re-theme the entire site if
-   * the logo colors ever change; everything below derives from them.
+   * --violet and --violet-light are the exact gradient stops from the
+   * Hoops Chic logo (public/logo/logo.svg). --violet-dark is a darkened,
+   * accessible tone used for solid CTA backgrounds. Update these values
+   * to re-theme the entire site if the logo colors ever change.
    */
   --ivory: #faf8fc;
-  --lavender: #efe1fb;
-  --violet: #a259e6;
+  --lavender: #f3e8fd;
+  --violet: #c334f3;
+  --violet-light: #9f7ae6;
   --violet-dark: #7c3aed;
   --charcoal: #2b2430;
   --whatsapp: #25d366;

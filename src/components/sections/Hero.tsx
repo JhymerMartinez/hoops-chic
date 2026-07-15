@@ -1,3 +1,4 @@
+import Image from "next/image";
 import Link from "next/link";
 import { Button } from "@/components/ui/button";
 import { WhatsAppOrderButton } from "@/components/products/WhatsAppOrderButton";
@@ -24,8 +25,15 @@ export function Hero() {
         </div>
       </div>
       <div className="flex flex-1 items-center justify-center">
-        <div className="flex aspect-square w-full max-w-sm items-center justify-center rounded-full bg-gradient-to-br from-lavender via-ivory to-secondary shadow-inner">
-          <span className="font-heading text-2xl text-violet-dark">Hoops Chic</span>
+        <div className="flex aspect-square w-full max-w-sm items-center justify-center rounded-full bg-gradient-to-br from-lavender via-ivory to-secondary p-16 shadow-inner">
+          <Image
+            src="/logo/logo.svg"
+            alt="Hoops Chic"
+            width={256}
+            height={256}
+            className="h-full w-full"
+            priority
+          />
         </div>
       </div>
     </section>
