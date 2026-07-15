@@ -10,7 +10,7 @@ export function Hero() {
         <span className="rounded-full bg-secondary px-4 py-1 text-xs font-medium tracking-wide text-charcoal/70 uppercase">
           Handmade &middot; Timeless &middot; Elegant
         </span>
-        <h1 className="font-heading text-4xl leading-tight text-charcoal sm:text-5xl">
+        <h1 className="font-script text-5xl leading-tight text-charcoal sm:text-6xl">
           Jewelry made to feel like you.
         </h1>
         <p className="max-w-md text-base text-muted-foreground sm:text-lg">
