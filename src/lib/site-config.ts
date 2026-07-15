@@ -4,11 +4,10 @@ export const siteConfig = {
   description:
     "Hoops Chic is a premium handmade jewelry brand focused on creating elegant, timeless, and meaningful accessories.",
   url: "https://hoopschic.com",
-  // TODO: replace with the real business WhatsApp number in international format (no + or spaces).
-  whatsappNumber: "10000000000",
-  instagramHandle: "@hoopschic",
-  instagramUrl: "https://instagram.com/hoopschic",
-  email: "hello@hoopschic.com",
+  whatsappNumber: "5930968833482",
+  instagramHandle: "@hoops.chic.ec",
+  instagramUrl: "https://www.instagram.com/hoops.chic.ec/",
+  email: "hoops.chic.ec@gmail.com",
   nav: [
     { label: "Shop", href: "/shop" },
     { label: "Collections", href: "/collections" },
