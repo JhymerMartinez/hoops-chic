@@ -1,4 +1,5 @@
 import type { Category } from "@/types/product";
+import type { Locale } from "@/i18n/config";
 
 export const categories: Category[] = [
   {
@@ -27,6 +28,37 @@ export const categories: Category[] = [
   },
 ];
 
-export function getCategory(slug: string) {
-  return categories.find((category) => category.slug === slug);
+const spanishCategories: Category[] = [
+  {
+    slug: "rings",
+    name: "Anillos",
+    description:
+      "Anillos artesanales delicados para combinar, apilar o llevar solos.",
+  },
+  {
+    slug: "earrings",
+    name: "Aretes",
+    description:
+      "Desde piezas sutiles hasta aros protagonistas, creados para la elegancia cotidiana.",
+  },
+  {
+    slug: "bracelets",
+    name: "Pulseras",
+    description:
+      "Cadenas y brazaletes minimalistas que aportan un toque cálido y refinado.",
+  },
+  {
+    slug: "necklaces",
+    name: "Collares",
+    description:
+      "Dijes y cadenas atemporales para combinar o llevar solos en cualquier ocasión.",
+  },
+];
+
+export function getCategories(locale: Locale) {
+  return locale === "es" ? spanishCategories : categories;
+}
+
+export function getCategory(slug: string, locale: Locale = "en") {
+  return getCategories(locale).find((category) => category.slug === slug);
 }

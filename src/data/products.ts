@@ -1,4 +1,5 @@
 import type { Product } from "@/types/product";
+import type { Locale } from "@/i18n/config";
 
 export const products: Product[] = [
   // Rings
@@ -258,20 +259,185 @@ export const products: Product[] = [
   },
 ];
 
-export function getProductBySlug(slug: string) {
-  return products.find((product) => product.slug === slug);
+type ProductTranslation = Pick<
+  Product,
+  "name" | "shortDescription" | "description" | "materials" | "colorway"
+>;
+
+const spanishProductTranslations: Record<string, ProductTranslation> = {
+  r1: {
+    name: "Anillo Apilable Aurora",
+    shortDescription:
+      "Una fina banda dorada diseñada para combinar con facilidad.",
+    description:
+      "El Anillo Apilable Aurora está elaborado a mano en latón dorado con un acabado liso y pulido. Su silueta fina es perfecta para combinar con otras piezas o llevar sola en un estilo cotidiano y minimalista.",
+    materials: ["Latón dorado", "Recubrimiento resistente al desgaste"],
+    colorway: "Dorado",
+  },
+  r2: {
+    name: "Anillo Sello Luna",
+    shortDescription:
+      "Un anillo sello protagonista con una delicada superficie martillada.",
+    description:
+      "Inspirado en los anillos heredados, el Anillo Sello Luna presenta una superficie martillada a mano que aporta textura orgánica y una banda cómoda y sustancial. Una pieza protagonista con alma artesanal.",
+    materials: ["Latón dorado"],
+    colorway: "Dorado",
+  },
+  r3: {
+    name: "Anillo Halo Pétalo",
+    shortDescription:
+      "Un delicado anillo floral con zirconia cúbica en el centro.",
+    description:
+      "El Anillo Halo Pétalo rodea una zirconia cúbica con delicados pétalos colocados a mano. Ligero, romántico y perfecto para regalar a alguien especial.",
+    materials: ["Latón dorado", "Zirconia cúbica"],
+    colorway: "Dorado",
+  },
+  r4: {
+    name: "Anillo Silver Lining",
+    shortDescription:
+      "Una banda en tono plateado con acabado mate cepillado.",
+    description:
+      "Para quienes prefieren el plateado, el Anillo Silver Lining ofrece un acabado mate cepillado sobre una banda redondeada y cómoda. Sutil y versátil.",
+    materials: ["Latón plateado", "Recubrimiento resistente al desgaste"],
+    colorway: "Plateado",
+  },
+  e1: {
+    name: "Aros Clásicos Dorados",
+    shortDescription:
+      "Aros ligeros para todos los días con un acabado dorado pulido.",
+    description:
+      "Nuestros Aros Clásicos Dorados más vendidos son ligeros, cómodos e infinitamente versátiles. Su acabado dorado pulido funciona igual de bien para la oficina o una salida nocturna.",
+    materials: ["Latón dorado", "Postes hipoalergénicos"],
+    colorway: "Dorado",
+  },
+  e2: {
+    name: "Aretes Colgantes Starlight",
+    shortDescription:
+      "Delicados aretes con estrellas brillantes de zirconia cúbica.",
+    description:
+      "Los Aretes Colgantes Starlight presentan pequeñas estrellas de zirconia cúbica suspendidas de una fina cadena dorada. Un brillo sutil que atrapa la luz con cada movimiento.",
+    materials: ["Latón dorado", "Zirconia cúbica"],
+    colorway: "Dorado",
+  },
+  e3: {
+    name: "Aretes Esencia de Perla",
+    shortDescription:
+      "Perlas de agua dulce en un delicado marco dorado.",
+    description:
+      "Los Aretes Esencia de Perla combinan perlas genuinas de agua dulce con un delicado marco dorado para lograr un estilo elegante y atemporal, perfecto del día a la noche.",
+    materials: ["Perla de agua dulce", "Latón dorado"],
+    colorway: "Dorado",
+  },
+  e4: {
+    name: "Aretes Huggie Twist",
+    shortDescription:
+      "Pequeños aros ajustados con una sutil textura torcida.",
+    description:
+      "Los Aretes Huggie Twist abrazan el lóbulo con una silueta pequeña y una delicada textura torcida que añade dimensión. Perfectos para una segunda o tercera perforación.",
+    materials: ["Latón dorado"],
+    colorway: "Dorado",
+  },
+  b1: {
+    name: "Pulsera Cadena Everyday",
+    shortDescription:
+      "Una fina pulsera de cadena para combinar todos los días.",
+    description:
+      "La Pulsera Cadena Everyday está diseñada para llevar sola o combinada con otras piezas. Su cierre ajustable ofrece un calce cómodo y personalizado.",
+    materials: ["Latón dorado"],
+    colorway: "Dorado",
+  },
+  b2: {
+    name: "Brazalete Harmony",
+    shortDescription:
+      "Un brazalete abierto de forma suave y escultural.",
+    description:
+      "El Brazalete Harmony envuelve la muñeca con una forma suave y escultural. Su diseño abierto y flexible se adapta cómodamente a la mayoría de tamaños.",
+    materials: ["Latón dorado"],
+    colorway: "Dorado",
+  },
+  b3: {
+    name: "Pulsera de Cuentas y Dije",
+    shortDescription:
+      "Delicadas cuentas acompañadas de un único dije dorado.",
+    description:
+      "La Pulsera de Cuentas y Dije combina delicadas cuentas de vidrio con un único dije dorado, aportando un toque cálido y artesanal a cualquier conjunto.",
+    materials: ["Cuentas de vidrio", "Latón dorado"],
+    colorway: "Dorado",
+  },
+  b4: {
+    name: "Pulsera Corazones Unidos",
+    shortDescription:
+      "Una romántica cadena de pequeños dijes de corazón enlazados.",
+    description:
+      "La Pulsera Corazones Unidos es una delicada cadena de pequeños corazones, un regalo dulce y romántico para alguien que amas o un detalle para ti.",
+    materials: ["Latón dorado"],
+    colorway: "Dorado",
+  },
+  n1: {
+    name: "Collar Dije Solsticio",
+    shortDescription:
+      "Una fina cadena con un dije inspirado en el sol.",
+    description:
+      "El Collar Dije Solsticio presenta un dije inspirado en el sol sobre una fina cadena ajustable. Una pieza cálida para todos los días que combina maravillosamente con otros collares.",
+    materials: ["Latón dorado"],
+    colorway: "Dorado",
+  },
+  n2: {
+    name: "Collar en Capas Cascade",
+    shortDescription:
+      "Dos cadenas finas de diferentes largos, combinadas en una sola pieza.",
+    description:
+      "El Collar en Capas Cascade combina dos cadenas finas de diferentes largos en un solo cierre para lograr un estilo en capas sin enredos y sin esfuerzo.",
+    materials: ["Latón dorado"],
+    colorway: "Dorado",
+  },
+  n3: {
+    name: "Collar con Inicial",
+    shortDescription:
+      "Un collar delicado y personal con un dije de letra.",
+    description:
+      "El Collar con Inicial presenta un delicado dije de letra sobre una fina cadena, un regalo personal y significativo para ti o alguien que amas.",
+    materials: ["Latón dorado"],
+    colorway: "Dorado",
+  },
+  n4: {
+    name: "Collar Gota de Perla",
+    shortDescription:
+      "Una perla de agua dulce suspendida de una fina cadena.",
+    description:
+      "Una genuina perla de agua dulce cuelga de una fina cadena dorada en el Collar Gota de Perla, una pieza serena y atemporal para cualquier ocasión.",
+    materials: ["Perla de agua dulce", "Latón dorado"],
+    colorway: "Dorado",
+  },
+};
+
+const spanishProducts = products.map((product) => ({
+  ...product,
+  ...spanishProductTranslations[product.id],
+}));
+
+export function getProducts(locale: Locale) {
+  return locale === "es" ? spanishProducts : products;
 }
 
-export function getFeaturedProducts() {
-  return products.filter((product) => product.featured);
+export function getProductBySlug(slug: string, locale: Locale = "en") {
+  return getProducts(locale).find((product) => product.slug === slug);
 }
 
-export function getProductsByCategory(category: string) {
-  return products.filter((product) => product.category === category);
+export function getFeaturedProducts(locale: Locale = "en") {
+  return getProducts(locale).filter((product) => product.featured);
 }
 
-export function getRelatedProducts(product: Product, limit = 4) {
-  return products
+export function getProductsByCategory(category: string, locale: Locale = "en") {
+  return getProducts(locale).filter((product) => product.category === category);
+}
+
+export function getRelatedProducts(
+  product: Product,
+  locale: Locale = "en",
+  limit = 4
+) {
+  return getProducts(locale)
     .filter((p) => p.category === product.category && p.id !== product.id)
     .slice(0, limit);
 }

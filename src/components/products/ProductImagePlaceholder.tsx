@@ -15,9 +15,11 @@ const ICONS: Record<ProductCategory, typeof Gem> = {
  */
 export function ProductImagePlaceholder({
   category,
+  label,
   className,
 }: {
   category: ProductCategory;
+  label: string;
   className?: string;
 }) {
   const Icon = ICONS[category] ?? Gem;
@@ -29,7 +31,7 @@ export function ProductImagePlaceholder({
         className
       )}
       role="img"
-      aria-label={`${category} placeholder image`}
+      aria-label={label}
     >
       <Icon className="size-16 text-violet" strokeWidth={1} aria-hidden="true" />
     </div>

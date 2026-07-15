@@ -1,17 +1,26 @@
 import { Star } from "lucide-react";
 import Link from "next/link";
 import { Button } from "@/components/ui/button";
-import { reviews } from "@/data/reviews";
+import { getReviews } from "@/data/reviews";
+import { getLocalizedPath, type Locale } from "@/i18n/config";
+import type { Dictionary } from "@/i18n/dictionaries";
 
-export function Testimonials() {
-  const featured = reviews.slice(0, 3);
+export function Testimonials({
+  locale,
+  dictionary,
+}: {
+  locale: Locale;
+  dictionary: Dictionary;
+}) {
+  const featured = getReviews(locale).slice(0, 3);
+  const copy = dictionary.testimonials;
 
   return (
     <section className="mx-auto max-w-6xl px-4 py-16 sm:px-6">
       <div className="mb-8 text-center">
-        <h2 className="font-heading text-3xl text-charcoal">Loved by our customers</h2>
+        <h2 className="font-heading text-3xl text-charcoal">{copy.title}</h2>
         <p className="mt-2 text-muted-foreground">
-          Real words from real Hoops Chic customers.
+          {copy.description}
         </p>
       </div>
       <div className="grid gap-6 sm:grid-cols-3">
@@ -37,7 +46,7 @@ export function Testimonials() {
       </div>
       <div className="mt-8 flex justify-center">
         <Button asChild variant="link" className="text-charcoal">
-          <Link href="/reviews">Read all reviews</Link>
+          <Link href={getLocalizedPath(locale, "/reviews")}>{copy.cta}</Link>
         </Button>
       </div>
     </section>

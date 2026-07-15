@@ -6,9 +6,22 @@ import { Search } from "lucide-react";
 import { Input } from "@/components/ui/input";
 import { Button } from "@/components/ui/button";
 import { cn } from "@/lib/utils";
-import { categories } from "@/data/categories";
+import type { Category } from "@/types/product";
+import type { Locale } from "@/i18n/config";
 
-export function ProductFilters() {
+export function ProductFilters({
+  locale,
+  categories,
+  labels,
+}: {
+  locale: Locale;
+  categories: Category[];
+  labels: {
+    searchPlaceholder: string;
+    searchLabel: string;
+    all: string;
+  };
+}) {
   const router = useRouter();
   const searchParams = useSearchParams();
   const [, startTransition] = useTransition();
@@ -33,7 +46,8 @@ export function ProductFilters() {
 
     const queryString = params.toString();
     startTransition(() => {
-      router.push(queryString ? `/shop?${queryString}` : "/shop");
+      const shopPath = `/${locale}/shop`;
+      router.push(queryString ? `${shopPath}?${queryString}` : shopPath);
     });
   }
 
@@ -51,9 +65,9 @@ export function ProductFilters() {
           type="search"
           value={query}
           onChange={(event) => setQuery(event.target.value)}
-          placeholder="Search products..."
+          placeholder={labels.searchPlaceholder}
           className="pl-9"
-          aria-label="Search products"
+          aria-label={labels.searchLabel}
         />
       </form>
 
@@ -65,7 +79,7 @@ export function ProductFilters() {
           className={cn(activeCategory === "all" && "bg-violet-dark text-white")}
           onClick={() => updateParams({ category: "all" })}
         >
-          All
+          {labels.all}
         </Button>
         {categories.map((category) => (
           <Button

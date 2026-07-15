@@ -1,3 +1,5 @@
+import type { Locale } from "@/i18n/config";
+
 export interface Review {
   id: string;
   name: string;
@@ -46,3 +48,47 @@ export const reviews: Review[] = [
     product: "Pearl Drop Necklace",
   },
 ];
+
+const spanishReviews: Review[] = [
+  {
+    id: "rev1",
+    name: "Camila R.",
+    location: "Quito, EC",
+    rating: 5,
+    text: "La calidad es increíble por el precio. Mis Aros Clásicos Dorados se ven mucho más costosos y pedir por WhatsApp fue facilísimo.",
+    product: "Aros Clásicos Dorados",
+  },
+  {
+    id: "rev2",
+    name: "Valentina M.",
+    rating: 5,
+    text: "Compré el Collar con Inicial para mi hermana y no se lo ha quitado desde entonces. El empaque también es precioso.",
+    product: "Collar con Inicial",
+  },
+  {
+    id: "rev3",
+    name: "Isabella T.",
+    location: "Guayaquil, EC",
+    rating: 4,
+    text: "Me encanta el Anillo Apilable Aurora; lo uso todos los días. Me gustaría ver más tallas en el futuro.",
+    product: "Anillo Apilable Aurora",
+  },
+  {
+    id: "rev4",
+    name: "Sofía P.",
+    rating: 5,
+    text: "Las piezas de Hoops Chic se sienten artesanales de la mejor manera. Siempre recibo cumplidos por el Brazalete Harmony.",
+    product: "Brazalete Harmony",
+  },
+  {
+    id: "rev5",
+    name: "Renata G.",
+    rating: 5,
+    text: "Responden rápido por WhatsApp y el Collar Gota de Perla es aún más bonito en persona. Definitivamente volveré a comprar.",
+    product: "Collar Gota de Perla",
+  },
+];
+
+export function getReviews(locale: Locale) {
+  return locale === "es" ? spanishReviews : reviews;
+}

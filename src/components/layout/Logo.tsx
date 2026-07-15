@@ -1,13 +1,22 @@
 import Image from "next/image";
 import Link from "next/link";
 import { cn } from "@/lib/utils";
+import { getLocalizedPath, type Locale } from "@/i18n/config";
 
-export function Logo({ className }: { className?: string }) {
+export function Logo({
+  locale,
+  label,
+  className,
+}: {
+  locale: Locale;
+  label: string;
+  className?: string;
+}) {
   return (
     <Link
-      href="/"
+      href={getLocalizedPath(locale)}
       className={cn("flex items-center", className)}
-      aria-label="Hoops Chic home"
+      aria-label={label}
     >
       <Image
         src="/logo/logo.svg"

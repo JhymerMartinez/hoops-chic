@@ -2,19 +2,22 @@ import { MessageCircle } from "lucide-react";
 import { getWhatsAppLink } from "@/lib/whatsapp";
 import { cn } from "@/lib/utils";
 import type { Product } from "@/types/product";
+import type { Locale } from "@/i18n/config";
 
 export function WhatsAppOrderButton({
   product,
+  locale,
   className,
-  label = "Order on WhatsApp",
+  label,
 }: {
   product?: Product;
+  locale: Locale;
   className?: string;
-  label?: string;
+  label: string;
 }) {
   return (
     <a
-      href={getWhatsAppLink(product)}
+      href={getWhatsAppLink(product, locale)}
       target="_blank"
       rel="noopener noreferrer"
       className={cn(
