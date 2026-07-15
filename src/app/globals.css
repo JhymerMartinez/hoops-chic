@@ -11,8 +11,9 @@
   --font-mono: var(--font-body);
   --font-heading: var(--font-heading);
   --color-ivory: var(--ivory);
-  --color-beige: var(--beige);
-  --color-gold: var(--gold);
+  --color-lavender: var(--lavender);
+  --color-violet: var(--violet);
+  --color-violet-dark: var(--violet-dark);
   --color-charcoal: var(--charcoal);
   --color-whatsapp: var(--whatsapp);
   --color-sidebar-ring: var(--sidebar-ring);
@@ -54,10 +55,19 @@
 }
 
 :root {
-  --ivory: #fbf8f3;
-  --beige: #efe6d8;
-  --gold: #c9a66b;
-  --charcoal: #2a2724;
+  /**
+   * Brand theme
+   * -----------
+   * This is the single source of truth for the site's color palette.
+   * It's derived from the Hoops Chic logo (violet/orchid butterfly on a
+   * lavender wash). Update these values to re-theme the entire site if
+   * the logo colors ever change; everything below derives from them.
+   */
+  --ivory: #faf8fc;
+  --lavender: #efe1fb;
+  --violet: #a259e6;
+  --violet-dark: #7c3aed;
+  --charcoal: #2b2430;
   --whatsapp: #25d366;
 
   --card: #ffffff;
@@ -66,16 +76,16 @@
   --popover-foreground: var(--charcoal);
   --primary: var(--charcoal);
   --primary-foreground: var(--ivory);
-  --secondary: var(--beige);
+  --secondary: var(--lavender);
   --secondary-foreground: var(--charcoal);
-  --muted: #f3ede1;
-  --muted-foreground: #7a7268;
-  --accent: var(--gold);
-  --accent-foreground: var(--charcoal);
+  --muted: #f4ecfc;
+  --muted-foreground: #78708a;
+  --accent: var(--violet);
+  --accent-foreground: #ffffff;
   --destructive: oklch(0.577 0.245 27.325);
-  --border: #e6dcc8;
-  --input: #e6dcc8;
-  --ring: var(--gold);
+  --border: #e4d5f7;
+  --input: #e4d5f7;
+  --ring: var(--violet);
   --chart-1: oklch(0.87 0 0);
   --chart-2: oklch(0.556 0 0);
   --chart-3: oklch(0.439 0 0);

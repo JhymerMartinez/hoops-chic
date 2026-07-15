@@ -62,7 +62,7 @@ export function ProductFilters() {
           type="button"
           size="sm"
           variant={activeCategory === "all" ? "default" : "outline"}
-          className={cn(activeCategory === "all" && "bg-charcoal text-ivory")}
+          className={cn(activeCategory === "all" && "bg-violet-dark text-white")}
           onClick={() => updateParams({ category: "all" })}
         >
           All
@@ -74,7 +74,7 @@ export function ProductFilters() {
             size="sm"
             variant={activeCategory === category.slug ? "default" : "outline"}
             className={cn(
-              activeCategory === category.slug && "bg-charcoal text-ivory"
+              activeCategory === category.slug && "bg-violet-dark text-white"
             )}
             onClick={() => updateParams({ category: category.slug })}
           >

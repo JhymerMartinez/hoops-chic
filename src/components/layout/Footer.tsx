@@ -5,7 +5,7 @@ import { siteConfig } from "@/lib/site-config";
 
 export function Footer() {
   return (
-    <footer className="border-t border-border bg-beige/40">
+    <footer className="border-t border-border bg-lavender/40">
       <div className="mx-auto flex max-w-6xl flex-col gap-8 px-4 py-12 sm:px-6 md:flex-row md:justify-between">
         <div className="flex max-w-sm flex-col gap-3">
           <Logo />
@@ -16,14 +16,14 @@ export function Footer() {
               target="_blank"
               rel="noopener noreferrer"
               aria-label="Hoops Chic on Instagram"
-              className="text-charcoal transition-colors hover:text-gold"
+              className="text-charcoal transition-colors hover:text-violet"
             >
               <Camera className="size-5" />
             </a>
             <a
               href={`mailto:${siteConfig.email}`}
               aria-label="Email Hoops Chic"
-              className="text-charcoal transition-colors hover:text-gold"
+              className="text-charcoal transition-colors hover:text-violet"
             >
               <Mail className="size-5" />
             </a>

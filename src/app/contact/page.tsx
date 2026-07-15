@@ -35,7 +35,7 @@ export default function ContactPage() {
           rel="noopener noreferrer"
           className="flex flex-col items-center gap-3 rounded-2xl border border-border p-6 text-center transition-colors hover:bg-secondary/60"
         >
-          <Camera className="size-6 text-gold" />
+          <Camera className="size-6 text-violet" />
           <span className="font-medium text-charcoal">Instagram</span>
           <span className="text-sm text-muted-foreground">
             {siteConfig.instagramHandle}

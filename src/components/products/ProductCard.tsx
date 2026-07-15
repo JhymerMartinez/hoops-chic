@@ -7,7 +7,7 @@ export function ProductCard({ product }: { product: Product }) {
   return (
     <Link
       href={`/shop/${product.slug}`}
-      className="group flex flex-col gap-3 rounded-2xl p-3 transition-colors hover:bg-secondary/60 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-gold"
+      className="group flex flex-col gap-3 rounded-2xl p-3 transition-colors hover:bg-secondary/60 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-violet"
     >
       <div className="relative overflow-hidden rounded-2xl">
         <ProductImagePlaceholder

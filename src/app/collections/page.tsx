@@ -41,7 +41,7 @@ export default function CollectionsPage() {
                 <p className="mt-1 text-sm text-muted-foreground">
                   {category.description}
                 </p>
-                <p className="mt-2 text-sm font-medium text-gold">
+                <p className="mt-2 text-sm font-medium text-violet-dark">
                   {count} pieces
                 </p>
               </div>

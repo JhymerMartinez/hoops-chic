@@ -25,13 +25,13 @@ export function ProductImagePlaceholder({
   return (
     <div
       className={cn(
-        "flex aspect-square w-full items-center justify-center rounded-2xl bg-gradient-to-br from-beige to-ivory",
+        "flex aspect-square w-full items-center justify-center rounded-2xl bg-gradient-to-br from-lavender to-ivory",
         className
       )}
       role="img"
       aria-label={`${category} placeholder image`}
     >
-      <Icon className="size-16 text-gold" strokeWidth={1} aria-hidden="true" />
+      <Icon className="size-16 text-violet" strokeWidth={1} aria-hidden="true" />
     </div>
   );
 }

@@ -20,9 +20,9 @@ export function Testimonials() {
             key={review.id}
             className="flex flex-col gap-3 rounded-2xl border border-border bg-card p-6"
           >
-            <div className="flex gap-1 text-gold">
+            <div className="flex gap-1 text-violet">
               {Array.from({ length: review.rating }).map((_, index) => (
-                <Star key={index} className="size-4 fill-gold" />
+                <Star key={index} className="size-4 fill-violet" />
               ))}
             </div>
             <blockquote className="text-sm text-charcoal/90">

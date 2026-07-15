@@ -3,7 +3,7 @@ import { Button } from "@/components/ui/button";
 
 export function BrandStory() {
   return (
-    <section className="bg-beige/40">
+    <section className="bg-lavender/40">
       <div className="mx-auto flex max-w-6xl flex-col items-center gap-8 px-4 py-16 text-center sm:px-6">
         <h2 className="font-heading text-3xl text-charcoal sm:text-4xl">
           Crafted with intention, worn with meaning.

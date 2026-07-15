@@ -17,15 +17,15 @@ export function Hero() {
           Browse our catalog and order directly through WhatsApp.
         </p>
         <div className="flex flex-wrap items-center gap-4">
-          <Button asChild size="lg" className="bg-charcoal text-ivory hover:bg-charcoal/90">
+          <Button asChild size="lg" className="bg-violet-dark text-white hover:bg-violet">
             <Link href="/shop">Shop the Catalog</Link>
           </Button>
           <WhatsAppOrderButton />
         </div>
       </div>
       <div className="flex flex-1 items-center justify-center">
-        <div className="flex aspect-square w-full max-w-sm items-center justify-center rounded-full bg-gradient-to-br from-beige via-ivory to-secondary shadow-inner">
-          <span className="font-heading text-2xl text-gold">Hoops Chic</span>
+        <div className="flex aspect-square w-full max-w-sm items-center justify-center rounded-full bg-gradient-to-br from-lavender via-ivory to-secondary shadow-inner">
+          <span className="font-heading text-2xl text-violet-dark">Hoops Chic</span>
         </div>
       </div>
     </section>

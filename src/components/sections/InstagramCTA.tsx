@@ -4,7 +4,7 @@ import { siteConfig } from "@/lib/site-config";
 export function InstagramCTA() {
   return (
     <section className="mx-auto max-w-6xl px-4 py-16 text-center sm:px-6">
-      <Camera className="mx-auto mb-4 size-8 text-gold" />
+      <Camera className="mx-auto mb-4 size-8 text-violet" />
       <h2 className="font-heading text-3xl text-charcoal">
         Follow along {siteConfig.instagramHandle}
       </h2>
