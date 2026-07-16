@@ -156,13 +156,15 @@ Typography:
 
 Color palette:
 
-- White
-- Ivory
-- Beige
-- Dark Gray
-- Gold accents
+- White / Ivory
+- Lavender (soft accent background)
+- Violet / Orchid (primary accent, from the logo)
+- Dark Gray / Charcoal (text)
 
-The exact palette can evolve according to the Hoops Chic logo.
+The exact palette can evolve according to the Hoops Chic logo. Brand colors
+are centralized as CSS variables in `src/app/globals.css` (see the "Brand
+theme" comment block) so the whole site can be re-themed by editing a
+handful of values there.
 
 ---
 

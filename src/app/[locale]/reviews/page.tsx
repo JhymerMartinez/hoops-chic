@@ -1,0 +1,42 @@
+import type { Metadata } from "next";
+import { Star } from "lucide-react";
+import { getReviews } from "@/data/reviews";
+import { getDictionary } from "@/i18n/dictionaries";
+import { getPageMetadata } from "@/i18n/metadata";
+import { getRequestLocale, type LocaleParams } from "@/i18n/server";
+
+export async function generateMetadata({ params }: { params: LocaleParams }): Promise<Metadata> {
+  const locale = await getRequestLocale(params);
+  return getPageMetadata(locale, getDictionary(locale).meta.pages.reviews, "/reviews");
+}
+
+export default async function ReviewsPage({ params }: { params: LocaleParams }) {
+  const locale = await getRequestLocale(params);
+  const copy = getDictionary(locale).reviews;
+  const reviews = getReviews(locale);
+
+  return (
+    <div className="mx-auto max-w-4xl px-4 py-12 sm:px-6">
+      <div className="mb-10">
+        <h1 className="font-heading text-4xl text-charcoal">{copy.title}</h1>
+        <p className="mt-2 text-muted-foreground">{copy.description}</p>
+      </div>
+      <div className="flex flex-col gap-6">
+        {reviews.map((review) => (
+          <figure key={review.id} className="flex flex-col gap-3 rounded-2xl border border-border bg-card p-6">
+            <div className="flex gap-1 text-violet">
+              {Array.from({ length: review.rating }).map((_, index) => (
+                <Star key={index} className="size-4 fill-violet" />
+              ))}
+            </div>
+            <blockquote className="text-charcoal/90">&ldquo;{review.text}&rdquo;</blockquote>
+            <figcaption className="text-sm font-medium text-muted-foreground">
+              {review.name}{review.location ? `, ${review.location}` : ""}{review.product ? ` — ${review.product}` : ""}
+            </figcaption>
+          </figure>
+        ))}
+      </div>
+    </div>
+  );
+}
+
