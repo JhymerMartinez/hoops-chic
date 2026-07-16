@@ -27,8 +27,9 @@ export function ProductImagePlaceholder({
   className?: string;
 }) {
   const Icon = ICONS[category] ?? Gem;
+  const imageUrl = image?.asset?._ref ? getSanityImageUrl(image) : undefined;
 
-  if (image?.asset?._ref) {
+  if (imageUrl) {
     return (
       <div
         className={cn(
@@ -37,8 +38,8 @@ export function ProductImagePlaceholder({
         )}
       >
         <Image
-          src={getSanityImageUrl(image)}
-          alt={image.alt || label}
+          src={imageUrl}
+          alt={image?.alt || label}
           fill
           sizes="(min-width: 1024px) 25vw, (min-width: 640px) 33vw, 50vw"
           className="object-cover"

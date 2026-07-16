@@ -52,6 +52,8 @@ const categoriesQuery = defineQuery(`
 `);
 
 async function fetchProducts(locale: Locale): Promise<Product[]> {
+  if (!sanityClient) return getStaticProducts(locale);
+
   try {
     const products = await sanityClient.fetch<Product[]>(
       productsQuery,
@@ -93,6 +95,13 @@ export async function getRelatedProducts(product: Product, locale: Locale, limit
 }
 
 export async function getCategories(locale: Locale): Promise<Category[]> {
+  if (!sanityClient) {
+    return getStaticCategories(locale).map((category) => ({
+      ...category,
+      productCount: getStaticProductsByCategory(category.slug, locale).length,
+    }));
+  }
+
   try {
     const categories = await sanityClient.fetch<Category[]>(
       categoriesQuery,
