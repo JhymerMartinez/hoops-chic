@@ -2,8 +2,7 @@ import type { Metadata } from "next";
 import { Suspense } from "react";
 import { ProductFilters } from "@/components/products/ProductFilters";
 import { ProductGrid } from "@/components/products/ProductGrid";
-import { getCategories } from "@/data/categories";
-import { getProducts } from "@/data/products";
+import { getCategories, getProducts } from "@/sanity/lib/catalog";
 import { getDictionary } from "@/i18n/dictionaries";
 import { getPageMetadata } from "@/i18n/metadata";
 import { getRequestLocale, type LocaleParams } from "@/i18n/server";
@@ -23,7 +22,10 @@ export default async function ShopPage({
   const locale = await getRequestLocale(params);
   const { q, category } = await searchParams;
   const dictionary = getDictionary(locale);
-  const products = getProducts(locale);
+  const [products, categories] = await Promise.all([
+    getProducts(locale),
+    getCategories(locale),
+  ]);
 
   const filtered = products.filter((product) => {
     const matchesCategory = !category || product.category === category;
@@ -45,7 +47,7 @@ export default async function ShopPage({
       <Suspense>
         <ProductFilters
           locale={locale}
-          categories={getCategories(locale)}
+          categories={categories}
           labels={dictionary.shop}
         />
       </Suspense>
@@ -61,4 +63,3 @@ export default async function ShopPage({
     </div>
   );
 }
-

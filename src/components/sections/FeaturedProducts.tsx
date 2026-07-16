@@ -1,18 +1,18 @@
 import Link from "next/link";
 import { ProductGrid } from "@/components/products/ProductGrid";
 import { Button } from "@/components/ui/button";
-import { getFeaturedProducts } from "@/data/products";
+import { getFeaturedProducts } from "@/sanity/lib/catalog";
 import { getLocalizedPath, type Locale } from "@/i18n/config";
 import type { Dictionary } from "@/i18n/dictionaries";
 
-export function FeaturedProducts({
+export async function FeaturedProducts({
   locale,
   dictionary,
 }: {
   locale: Locale;
   dictionary: Dictionary;
 }) {
-  const featured = getFeaturedProducts(locale);
+  const featured = await getFeaturedProducts(locale);
   const { common, featured: copy, shop } = dictionary;
 
   return (

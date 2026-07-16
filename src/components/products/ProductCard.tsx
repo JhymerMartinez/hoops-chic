@@ -24,6 +24,7 @@ export function ProductCard({
         <ProductImagePlaceholder
           category={product.category}
           label={imageLabel}
+          image={product.images?.[0]}
           className="transition-transform duration-300 group-hover:scale-[1.03]"
         />
         {product.featured && (

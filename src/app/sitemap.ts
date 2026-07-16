@@ -1,9 +1,10 @@
 import type { MetadataRoute } from "next";
-import { products } from "@/data/products";
+import { getProductSlugs } from "@/sanity/lib/catalog";
 import { siteConfig } from "@/lib/site-config";
 import { locales } from "@/i18n/config";
 
-export default function sitemap(): MetadataRoute.Sitemap {
+export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
+  const productSlugs = await getProductSlugs();
   const paths = [
     "",
     "/shop",
@@ -31,8 +32,8 @@ export default function sitemap(): MetadataRoute.Sitemap {
     }))
   );
 
-  const productRoutes = products.flatMap((product) => {
-    const path = `/shop/${product.slug}`;
+  const productRoutes = productSlugs.flatMap((slug) => {
+    const path = `/shop/${slug}`;
     return locales.map((locale) => ({
       url: `${siteConfig.url}/${locale}${path}`,
       lastModified: new Date(),

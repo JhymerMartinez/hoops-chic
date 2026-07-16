@@ -1,7 +1,6 @@
 import { ProductCard } from "@/components/products/ProductCard";
 import type { Product } from "@/types/product";
 import type { Locale } from "@/i18n/config";
-import { getCategory } from "@/data/categories";
 
 export function ProductGrid({
   products,
@@ -34,8 +33,7 @@ export function ProductGrid({
           bestsellerLabel={bestsellerLabel}
           imageLabel={imageLabel.replace(
             "{category}",
-            getCategory(product.category, locale)?.name.toLowerCase() ??
-              product.category
+            product.categoryName?.toLowerCase() ?? product.category
           )}
         />
       ))}

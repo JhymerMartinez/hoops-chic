@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
 import { ProductGrid } from "@/components/products/ProductGrid";
-import { getProducts } from "@/data/products";
+import { getProducts } from "@/sanity/lib/catalog";
 import { getDictionary } from "@/i18n/dictionaries";
 import { getPageMetadata } from "@/i18n/metadata";
 import { getRequestLocale, type LocaleParams } from "@/i18n/server";
@@ -13,7 +13,7 @@ export async function generateMetadata({ params }: { params: LocaleParams }): Pr
 export default async function GiftGuidePage({ params }: { params: LocaleParams }) {
   const locale = await getRequestLocale(params);
   const dictionary = getDictionary(locale);
-  const products = getProducts(locale);
+  const products = await getProducts(locale);
 
   return (
     <div className="mx-auto max-w-6xl px-4 py-12 sm:px-6">
@@ -46,4 +46,3 @@ export default async function GiftGuidePage({ params }: { params: LocaleParams }
     </div>
   );
 }
-
