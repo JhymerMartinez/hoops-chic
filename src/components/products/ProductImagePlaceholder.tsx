@@ -1,8 +1,10 @@
+import Image from "next/image";
 import { Gem, CircleDashed, Sparkles, Link2 } from "lucide-react";
-import type { ProductCategory } from "@/types/product";
+import type { ProductCategory, ProductImage } from "@/types/product";
 import { cn } from "@/lib/utils";
+import { getSanityImageUrl } from "@/sanity/lib/image";
 
-const ICONS: Record<ProductCategory, typeof Gem> = {
+const ICONS: Partial<Record<ProductCategory, typeof Gem>> = {
   rings: CircleDashed,
   earrings: Sparkles,
   bracelets: Link2,
@@ -16,13 +18,35 @@ const ICONS: Record<ProductCategory, typeof Gem> = {
 export function ProductImagePlaceholder({
   category,
   label,
+  image,
   className,
 }: {
   category: ProductCategory;
   label: string;
+  image?: ProductImage;
   className?: string;
 }) {
   const Icon = ICONS[category] ?? Gem;
+  const imageUrl = image?.asset?._ref ? getSanityImageUrl(image) : undefined;
+
+  if (imageUrl) {
+    return (
+      <div
+        className={cn(
+          "relative aspect-square w-full overflow-hidden rounded-2xl bg-lavender",
+          className
+        )}
+      >
+        <Image
+          src={imageUrl}
+          alt={image?.alt || label}
+          fill
+          sizes="(min-width: 1024px) 25vw, (min-width: 640px) 33vw, 50vw"
+          className="object-cover"
+        />
+      </div>
+    );
+  }
 
   return (
     <div

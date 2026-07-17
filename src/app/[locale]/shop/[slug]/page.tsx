@@ -6,22 +6,26 @@ import { ProductImagePlaceholder } from "@/components/products/ProductImagePlace
 import { ProductGrid } from "@/components/products/ProductGrid";
 import { WhatsAppOrderButton } from "@/components/products/WhatsAppOrderButton";
 import { Badge } from "@/components/ui/badge";
-import { getCategory } from "@/data/categories";
-import { getProductBySlug, getRelatedProducts, products } from "@/data/products";
+import {
+  getProductBySlug,
+  getProductSlugs,
+  getRelatedProducts,
+} from "@/sanity/lib/catalog";
 import { getDictionary } from "@/i18n/dictionaries";
 import { getLanguageAlternates, getOpenGraphLocale } from "@/i18n/metadata";
 import { getRequestLocale } from "@/i18n/server";
 
 type ProductParams = Promise<{ locale: string; slug: string }>;
 
-export function generateStaticParams() {
-  return products.map((product) => ({ slug: product.slug }));
+export async function generateStaticParams() {
+  const slugs = await getProductSlugs();
+  return slugs.map((slug) => ({ slug }));
 }
 
 export async function generateMetadata({ params }: { params: ProductParams }): Promise<Metadata> {
   const locale = await getRequestLocale(params);
   const { slug } = await params;
-  const product = getProductBySlug(slug, locale);
+  const product = await getProductBySlug(slug, locale);
 
   if (!product) {
     return { title: getDictionary(locale).meta.pages.productNotFound };
@@ -45,12 +49,12 @@ export default async function ProductPage({ params }: { params: ProductParams })
   const locale = await getRequestLocale(params);
   const { slug } = await params;
   const dictionary = getDictionary(locale);
-  const product = getProductBySlug(slug, locale);
+  const product = await getProductBySlug(slug, locale);
 
   if (!product) notFound();
 
-  const related = getRelatedProducts(product, locale);
-  const categoryName = getCategory(product.category, locale)?.name.toLowerCase() ?? product.category;
+  const related = await getRelatedProducts(product, locale);
+  const categoryName = product.categoryName?.toLowerCase() ?? product.category;
 
   return (
     <div className="mx-auto max-w-6xl px-4 py-12 sm:px-6">
@@ -61,6 +65,7 @@ export default async function ProductPage({ params }: { params: ProductParams })
         <ProductImagePlaceholder
           category={product.category}
           label={dictionary.common.productImage.replace("{category}", categoryName)}
+          image={product.images?.[0]}
         />
         <div className="flex flex-col gap-4">
           {product.featured && <Badge className="w-fit bg-charcoal text-ivory">{dictionary.common.bestseller}</Badge>}
