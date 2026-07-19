@@ -143,6 +143,9 @@ const en = {
     materials: "Materials",
     colorway: "Colorway",
     related: "You may also like",
+    copyLink: "Copy product link",
+    linkCopied: "Link copied",
+    copyError: "Could not copy link",
   },
   collections: {
     title: "Collections",
@@ -228,7 +231,7 @@ const en = {
   },
   whatsapp: {
     product:
-      'Hi Hoops Chic! I\'m interested in the "{product}" ({currency} {price}). Is it available?',
+      'Hi Hoops Chic! I\'m interested in the "{product}" ({currency} {price}). Is it available?\n\nProduct link: {url}',
     generic:
       "Hi Hoops Chic! I'd love to know more about your jewelry collection.",
   },
@@ -387,6 +390,9 @@ const es: Dictionary = {
     materials: "Materiales",
     colorway: "Color",
     related: "También te puede gustar",
+    copyLink: "Copiar enlace del producto",
+    linkCopied: "Enlace copiado",
+    copyError: "No se pudo copiar el enlace",
   },
   collections: {
     title: "Colecciones",
@@ -472,7 +478,7 @@ const es: Dictionary = {
   },
   whatsapp: {
     product:
-      '¡Hola, Hoops Chic! Me interesa "{product}" ({currency} {price}). ¿Está disponible?',
+      '¡Hola, Hoops Chic! Me interesa "{product}" ({currency} {price}). ¿Está disponible?\n\nEnlace del producto: {url}',
     generic:
       "¡Hola, Hoops Chic! Me gustaría conocer más sobre su colección de joyería.",
   },

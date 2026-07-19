@@ -1,3 +1,6 @@
+"use client";
+
+import { useEffect, useRef } from "react";
 import { MessageCircle } from "lucide-react";
 import { getWhatsAppLink } from "@/lib/whatsapp";
 import { cn } from "@/lib/utils";
@@ -15,8 +18,21 @@ export function WhatsAppOrderButton({
   className?: string;
   label: string;
 }) {
+  const linkRef = useRef<HTMLAnchorElement>(null);
+
+  useEffect(() => {
+    if (!product || !linkRef.current) return;
+
+    linkRef.current.href = getWhatsAppLink(
+      product,
+      locale,
+      window.location.href,
+    );
+  }, [locale, product]);
+
   return (
     <a
+      ref={linkRef}
       href={getWhatsAppLink(product, locale)}
       target="_blank"
       rel="noopener noreferrer"
