@@ -228,7 +228,7 @@ const en = {
   },
   whatsapp: {
     product:
-      'Hi Hoops Chic! I\'m interested in the "{product}" ({currency} {price}). Is it available?',
+      'Hi Hoops Chic! I\'m interested in the "{product}" ({currency} {price}). Is it available?\n\nProduct link: {url}',
     generic:
       "Hi Hoops Chic! I'd love to know more about your jewelry collection.",
   },
@@ -472,7 +472,7 @@ const es: Dictionary = {
   },
   whatsapp: {
     product:
-      '¡Hola, Hoops Chic! Me interesa "{product}" ({currency} {price}). ¿Está disponible?',
+      '¡Hola, Hoops Chic! Me interesa "{product}" ({currency} {price}). ¿Está disponible?\n\nEnlace del producto: {url}',
     generic:
       "¡Hola, Hoops Chic! Me gustaría conocer más sobre su colección de joyería.",
   },
