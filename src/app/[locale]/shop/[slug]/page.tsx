@@ -4,6 +4,7 @@ import Link from "next/link";
 import { ChevronLeft } from "lucide-react";
 import { ProductImagePlaceholder } from "@/components/products/ProductImagePlaceholder";
 import { ProductGrid } from "@/components/products/ProductGrid";
+import { CopyProductLinkButton } from "@/components/products/CopyProductLinkButton";
 import { WhatsAppOrderButton } from "@/components/products/WhatsAppOrderButton";
 import { Badge } from "@/components/ui/badge";
 import {
@@ -14,6 +15,7 @@ import {
 import { getDictionary } from "@/i18n/dictionaries";
 import { getLanguageAlternates, getOpenGraphLocale } from "@/i18n/metadata";
 import { getRequestLocale } from "@/i18n/server";
+import { siteConfig } from "@/lib/site-config";
 
 type ProductParams = Promise<{ locale: string; slug: string }>;
 
@@ -80,12 +82,19 @@ export default async function ProductPage({ params }: { params: ProductParams })
             <span className="font-medium text-charcoal">{dictionary.product.colorway}</span>
             <span className="text-muted-foreground">{product.colorway}</span>
           </div>
-          <WhatsAppOrderButton
-            product={product}
-            locale={locale}
-            label={dictionary.common.orderOnWhatsApp}
-            className="mt-4 w-fit"
-          />
+          <div className="mt-4 flex flex-wrap gap-3">
+            <WhatsAppOrderButton
+              product={product}
+              locale={locale}
+              label={dictionary.common.orderOnWhatsApp}
+            />
+            <CopyProductLinkButton
+              fallbackUrl={`${siteConfig.url}/${locale}/shop/${product.slug}`}
+              label={dictionary.product.copyLink}
+              copiedLabel={dictionary.product.linkCopied}
+              errorLabel={dictionary.product.copyError}
+            />
+          </div>
         </div>
       </div>
       {related.length > 0 && (

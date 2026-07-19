@@ -143,6 +143,9 @@ const en = {
     materials: "Materials",
     colorway: "Colorway",
     related: "You may also like",
+    copyLink: "Copy product link",
+    linkCopied: "Link copied",
+    copyError: "Could not copy link",
   },
   collections: {
     title: "Collections",
@@ -387,6 +390,9 @@ const es: Dictionary = {
     materials: "Materiales",
     colorway: "Color",
     related: "También te puede gustar",
+    copyLink: "Copiar enlace del producto",
+    linkCopied: "Enlace copiado",
+    copyError: "No se pudo copiar el enlace",
   },
   collections: {
     title: "Colecciones",
